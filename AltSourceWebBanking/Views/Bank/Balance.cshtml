@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Balance";
+}
+
+<h2>Balance</h2>
+<p>The Current Balance of your account is: <div id="balance" style="text-align: right;"></div></p>
+<hr/>
+<p style="text-align: center;">@Html.ActionLink("Transaction History", "Transactions", "Bank") - @Html.ActionLink("Deposit", "Deposit", "Bank") - @Html.ActionLink("Withdraw", "Withdraw", "Bank")</p>
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (isLoggedIn())
+            {
+
+                var balanceLink = '@(Html.ActionLink(HttpUtility.HtmlDecode("Balance"), "Balance", "Bank", null, new { @class = "btn btn-default" }))';
+                var depositLink = '@(Html.ActionLink(HttpUtility.HtmlDecode("Deposit &raquo;"), "Deposit", "Bank", null, new { @class = "btn btn-default" }))';
+                var withdrawLink = '@(Html.ActionLink(HttpUtility.HtmlDecode("Widthdraw &raquo;"), "Withdraw", "Bank", null, new { @class = "btn btn-default" }))';
+                var transactionLink = '@(Html.ActionLink(HttpUtility.HtmlDecode("Transactions &raquo;"), "Transactions", "Bank", null, new { @class = "btn btn-default" }))';
+                var logoutLink = '@(Html.ActionLink("Logout", "Logout", "Bank"))';
+
+                checkLogin(balanceLink, depositLink, withdrawLink, transactionLink, logoutLink);
+
+                checkBalance();
+            }
+            else
+            {
+                window.location = "/Bank/Login";
+            }
+        });
+    </script>
+}
+

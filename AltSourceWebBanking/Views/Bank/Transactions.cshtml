@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Transactions";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Transactions</h2>
+<hr/>
+<table class="table table-striped table-bordered" id="transaction_table">
+    <thead>
+        <tr>
+            <th>Transaction Time</th><th>Start Balance</th><th>Change Amount</th><th>End Balance</th><th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+<hr/>
+<p><b>Current balance: </b><div id="balance" style="text-align: right;"></div></p>
+<hr/>
+<p style="text-align: center">@Html.ActionLink("Deposit", "Deposit", "Bank") - @Html.ActionLink("Withdraw", "Withdraw", "Bank")</p>
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#transaction_table').hide();
+            var balanceLink = '@(Html.ActionLink(HttpUtility.HtmlDecode("Balance"), "Balance", "Bank", null, new { @class = "btn btn-default" }))';
+            var depositLink = '@(Html.ActionLink(HttpUtility.HtmlDecode("Deposit &raquo;"), "Deposit", "Bank", null, new { @class = "btn btn-default" }))';
+            var withdrawLink = '@(Html.ActionLink(HttpUtility.HtmlDecode("Widthdraw &raquo;"), "Withdraw", "Bank", null, new { @class = "btn btn-default" }))';
+            var transactionLink = '@(Html.ActionLink(HttpUtility.HtmlDecode("Transactions &raquo;"), "Transactions", "Bank", null, new { @class = "btn btn-default" }))';
+            var logoutLink = '@(Html.ActionLink("Logout", "Logout", "Bank"))';
+
+            checkLogin(balanceLink, depositLink, withdrawLink, transactionLink, logoutLink);
+
+            if (isLoggedIn())
+            {
+                doTransactions();
+            }
+            else {
+                window.location = "/Bank/Login";
+            }
+        });
+    </script>
+}

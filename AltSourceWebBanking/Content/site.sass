@@ -1,0 +1,47 @@
+﻿$default-pad: 20px
+$error-color: #ff0000
+
+html
+	position: relative
+	min-height: 100%
+
+body
+	padding-top: 50px
+	margin-bottom: 60px
+
+
+
+/* Set padding to keep content from hitting the edges */
+.body-content 
+    padding-left: $default-pad - 5px
+    padding-right: $default-pad - 5px
+
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column */
+.dl-horizontal
+	dt
+		white-space: normal
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea
+	max-width: 280px
+
+
+.error 
+	color: $error-color
+
+.footer
+	position: absolute
+	bottom: 0
+	width: 100%
+	/* Set the fixed height of the footer here */
+	height: 60px
+	background-color: #f5f5f5
+	text-align: center
+
+	.container
+		padding-top: 10px
+
