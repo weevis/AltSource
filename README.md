@@ -21,10 +21,17 @@ and performs the requested action.
 
 #### Console Application Example Usage
 Users.Create FirstName LastName some@email.com UserName Password     --- Password requirements (minlength: 8, 1 upper, 1 non-alpha, 1 number)
+
 Users.Login UserName Email Password
+
 Users.Deposit 123.45
+
 Users.Withdraw 156.65
+
 Users.Withdraw 114.23
+
 Users.GetBalance
+
 Users.Transactions
+
 Users.Logout
