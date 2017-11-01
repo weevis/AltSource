@@ -16,3 +16,4 @@ bld/
 **/[Pp]ackages/*
 # except build/, which is used as an MSBuild target.
 !**/[Pp]ackages/build/
+**/AltSourceWebBanking/node_modules/*
