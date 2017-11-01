@@ -4,6 +4,10 @@ This is a project demo for the AltSource Inc. This project acts as a banking led
 The user can login, logout, deposit, withdraw, get balance, and list transactions.
 The project contains 3 main components:
 
+### Notes about HTTPS/SSL
+Normally a solution like this would have end-to-end HTTPS/SSL encryption, but for the sake of a demo, I did not think
+messing around with certs was really part of the exercise.
+
 ### Web API - AltSourceBankAppAPI
 A C# .Net Core Web API. This project is the core functionality - it creates an in-memory data store using EntityFramework.
 It also implements Identity authentication.  This API exposes endpoints for applications to access via requests which will 
