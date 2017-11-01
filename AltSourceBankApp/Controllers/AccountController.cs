@@ -281,6 +281,9 @@ namespace AltSourceBankAppAPI.Controllers
             if (u == null)
                 return BadRequest();
 
+            if (amount <= 0)
+                return BadRequest();
+
             if (amount > u.Balance)
             {
                 Transactions badtrans = new Transactions
@@ -362,6 +365,9 @@ namespace AltSourceBankAppAPI.Controllers
             var u = this.getUserByKey(getAPIKey());
 
             if (u == null)
+                return BadRequest();
+
+            if (amount <= 0)
                 return BadRequest();
 
             var startBalance = u.Balance;
